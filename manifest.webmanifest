@@ -1,0 +1,10 @@
+{
+  "name": "ハヤト | Personal AI",
+  "short_name": "ハヤト",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f5f2fb",
+  "theme_color": "#21183d",
+  "lang": "ja",
+  "description": "あなた専用の知識パートナー"
+}

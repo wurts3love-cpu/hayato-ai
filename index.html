@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#21183d">
+  <meta name="description" content="ハヤト — あなた専用の知識パートナー">
+  <title>ハヤト | Personal AI</title>
+  <link rel="manifest" href="./manifest.webmanifest">
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <div class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">H</div>
+        <div><strong>ハヤト</strong><small>PERSONAL AI</small></div>
+      </div>
+      <span class="status"><i></i> ローカルデモ</span>
+    </header>
+
+    <main>
+      <section class="hero card">
+        <div class="hero-copy">
+          <p class="eyebrow">YOUR KNOWLEDGE PARTNER</p>
+          <h1>こんにちは。</h1>
+          <p>知りたいことを一緒に調べ、知識として整理していきましょう。</p>
+          <div class="hero-tags"><span>情報収集</span><span>長期記憶</span><span>週次レポート</span></div>
+        </div>
+        <div class="orb" aria-hidden="true"><div class="orb-core">H</div></div>
+      </section>
+
+      <nav class="tabs" aria-label="メインメニュー">
+        <button class="tab active" data-tab="chat">チャット</button>
+        <button class="tab" data-tab="memory">記憶</button>
+        <button class="tab" data-tab="tasks">タスク</button>
+        <button class="tab" data-tab="report">レポート</button>
+      </nav>
+
+      <section id="panel-chat" class="panel active">
+        <div class="section-heading"><div><p class="eyebrow">CONVERSATION</p><h2>ハヤトと会話</h2></div><span class="pill">デモモード</span></div>
+        <div id="messages" class="messages" aria-live="polite">
+          <article class="message hayato"><div class="avatar">H</div><div class="bubble"><strong>ハヤト</strong><p>こんにちは！まだAIサーバーには接続していないので、今は画面と保存機能を試すデモ版です。調べたいテーマや、覚えておきたいことを入力してみてください。</p></div></article>
+        </div>
+        <form id="chat-form" class="composer">
+          <label class="sr-only" for="chat-input">メッセージ</label>
+          <textarea id="chat-input" rows="2" placeholder="ハヤトにメッセージ..." required></textarea>
+          <button class="send" type="submit" aria-label="送信">➤</button>
+        </form>
+        <p class="hint">現在の会話はこの端末のブラウザ内に保存されます。</p>
+      </section>
+
+      <section id="panel-memory" class="panel">
+        <div class="section-heading"><div><p class="eyebrow">KNOWLEDGE VAULT</p><h2>ハヤトの記憶</h2></div></div>
+        <form id="memory-form" class="card form-card">
+          <label for="memory-text">覚えておきたい知識・メモ</label>
+          <textarea id="memory-text" rows="3" placeholder="例：宇宙について調べたい。出典URLも一緒に記録する..." required></textarea>
+          <label for="memory-source">出典URL（任意）</label>
+          <input id="memory-source" type="url" placeholder="https://...">
+          <button class="primary" type="submit">記憶に保存</button>
+        </form>
+        <div id="memory-list" class="stack"></div>
+      </section>
+
+      <section id="panel-tasks" class="panel">
+        <div class="section-heading"><div><p class="eyebrow">AUTONOMOUS WORKFLOW</p><h2>タスク管理</h2></div></div>
+        <form id="task-form" class="card form-card">
+          <label for="task-text">ハヤトに取り組んでほしい目標</label>
+          <input id="task-text" maxlength="120" placeholder="例：太陽系について信頼できる資料を集める" required>
+          <button class="primary" type="submit">目標を追加</button>
+        </form>
+        <p class="hint">このデモではタスクを保存・管理できます。バックグラウンドでの自動調査はまだ行いません。</p>
+        <div id="task-list" class="stack"></div>
+      </section>
+
+      <section id="panel-report" class="panel">
+        <div class="section-heading"><div><p class="eyebrow">WEEKLY REVIEW</p><h2>週間レポート</h2></div><span class="pill">週1回の設計</span></div>
+        <div class="card report-card">
+          <div class="report-icon">✦</div>
+          <h3>今週の活動まとめ</h3>
+          <p>保存した知識とタスクの状態から、この端末内で簡易レポートを作成できます。</p>
+          <button id="make-report" class="primary">レポートを作成</button>
+          <div id="report-output" class="report-output" aria-live="polite"></div>
+        </div>
+        <p class="hint">自動で毎週通知する機能は、クラウド側の定期実行と通知設定を追加した段階で有効になります。</p>
+      </section>
+    </main>
+    <footer>HAYATO · Prototype 0.1 · データはこのブラウザ内に保存</footer>
+  </div>
+  <script src="./app.js"></script>
+</body>
+</html>
